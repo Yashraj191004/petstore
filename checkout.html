@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background-color: lightcyan;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+        .cart-item-details {
+            flex-grow: 1;
+        }
+        .total-price {
+            text-align: right;
+            margin-top: 20px;
+        }
+        button {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 22px;
+            padding: 10px 18px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a class="back-button" href="cart.html">Back</a>
+    <h1>Checkout</h1>
+    <div class="container">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" placeholder="Enter your Email ID" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" placeholder="Enter your address" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="number" id="phone" placeholder="Enter your phone number" required>
+        </div>
+        <h2>Order Summary</h2>
+        <div id="cartItems"></div>
+        <div class="total-price">
+            <strong>Total Price:</strong> <span id="totalPrice"></span>
+        </div>
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <script>
+        let cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+        let totalPrice = JSON.parse(sessionStorage.getItem('totalPrice'));
+
+        if (cartItems && cartItems.length > 0) {
+            let cartItemsHtml = '';
+            cartItems.forEach((item) => {
+                cartItemsHtml += `<div class="cart-item">
+                                    <img src="${item.imagePath}" alt="${item.productName}">
+                                    <div class="cart-item-details">
+                                        <p><b>${item.productName}</b></p>
+                                        <p><b>Price: ₹${item.price}</b></p>
+                                    </div>
+                                </div>`;
+            });
+            document.getElementById('cartItems').innerHTML = cartItemsHtml;
+        }
+
+        document.getElementById('totalPrice').textContent = totalPrice;
+
+        function placeOrder() {
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let address = document.getElementById('address').value;
+    let phone = document.getElementById('phone').value;
+
+    if (!name.trim() || !address.trim() || !phone.trim()) {
+        alert('Please fill out all the fields.');
+        return; 
+    }
+    if (!document.getElementById('email').checkValidity()) {
+        alert('Please enter a valid email address.');
+        return; 
+    }
+
+    sessionStorage.clear();
+    alert('Order placed successfully!\nThank you for your purchase!');
+    window.location.href = "index.html";
+}
+
+    </script>
+</body>
+</html>

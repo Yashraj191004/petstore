@@ -1,0 +1,373 @@
+*{
+  margin:0;
+  padding: 0;
+}
+#navbar{
+    background-color: black;
+    height: 40px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    position:fixed;
+    top:0%;
+    left: 0%;
+    right: 0%;
+    z-index: 999;
+}
+#button1{
+    background-color: yellow;
+    width: 85px;
+    font-size: 20px;
+}
+#logo{
+    color: yellow;
+}
+a{
+    color: white;
+    margin-right: 218px;
+    text-decoration: none;
+  }
+  a:hover{
+    color: yellowgreen;
+  }
+
+  input{
+    color: black;
+    font-weight: 300;
+    height: 20px;
+  }
+
+  #banner{
+    width: auto;
+    height: 200px;
+    border: 5px solid black;
+    background-image: url("banner1.jpeg");
+    background-size: contain;
+  }
+  #location {
+    height: 30px;
+    font-size: 20px;
+    background-color: antiquewhite;
+    display: flex;
+    align-items: center;
+}
+.location-container{
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 100px;
+}
+.logoa{
+  margin-top:5px;
+}
+.ph{
+ margin-top: 3px;
+}
+.ca{
+  background-color: yellow;
+}
+#address-box{
+  font-size: medium;
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+}
+  #pets{
+    font-size: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .Dog{
+  border: 5px solid black;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background-image: url("doglogo.jpg");
+  background-size: cover;
+  margin-left: 20px;
+  margin-right: 50px;
+  }
+.cat{
+  border: 5px solid black;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  background-image: url("catlogo.jpeg");
+  background-size: cover;
+  margin-left: 20px;
+  margin-right: 90px;
+}
+  .Tn pre{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 40px;
+    background-color: black;
+    color: orange;
+    animation: Trending 1s ease-out 0s infinite normal;
+  }
+  @keyframes Trending {
+  0%{color: white;}
+ 50%{color: yellow;}
+ 100%{color: red;}
+  }
+
+  .products-scroll {
+    display: flex;
+    justify-content: space-around;
+    background-color: antiquewhite;
+    height: 295px;
+    overflow-x: scroll; 
+    overflow-y: hidden; 
+    white-space: nowrap; 
+    width: 100%; 
+}
+.products-scroll::-webkit-scrollbar {
+    display: none; 
+}
+.product {
+    display: inline-block; 
+    margin-right: 20px; 
+    scroll-snap-align: start; 
+    transition: transform 0.3s ease;
+}
+.product:hover {
+  transform: scale(1.05); 
+}
+.product img {
+  height: 230px;
+  width: 230px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.details {
+    font-size: 25px;
+    font-style: italic;
+}
+
+#foffer {
+  height: 37px;
+  background-color: orange;
+  color: solid black;
+  font-size: 27px;
+  overflow: hidden; 
+  white-space: nowrap; 
+  align-items: center;
+}
+
+#foffer pre {
+  animation: scrollText 15s linear infinite;
+}
+
+@keyframes scrollText {
+  0% { transform: translateX(-50%); } 
+  100% { transform: translateX(100%); } 
+}
+
+#DogItems{
+  background-color: black;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  font-size: 45px;
+  animation: Trending 1s ease-out 0s infinite normal;
+}
+
+#dogp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  font-size: 25px;
+  padding-top: 10px;
+  background-color: antiquewhite;
+}
+
+.drow {
+  width: 100%;
+  display: flex;
+  margin-left: 18px;
+  margin-right: 18px;
+  padding-top: 5px;
+  justify-content: space-between; 
+  transition: transform 0.3s ease;
+}
+.drow :hover{
+  transform: scale(1.05); 
+}
+.dproduct {
+  margin-bottom: 20px; 
+}
+.dproduct img {
+height: 230px;
+width: 230px;
+}
+
+#catp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  padding-top: 10px;
+  font-size: 25px;
+  background-color: antiquewhite;
+}
+#catItems{
+  background-color: black;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  font-size: 45px;
+  animation: Trending 1s ease-out 0s infinite normal;
+}
+
+.crow {
+  width: 100%;
+  display: flex;
+  margin-left: 18px;
+  margin-right: 18px;
+  padding-top: 5px;
+  justify-content: space-between; 
+  transition: transform 0.3s ease;
+}
+.crow :hover{
+  transform: scale(1.05); 
+}
+.cproduct {
+  margin-bottom: 20px; 
+}
+
+.cproduct img {
+  height: 230px;
+  width: 230px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: antiquewhite;
+  position: fixed;
+  top: 25px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 15px;
+  border: 1px solid #888;
+  width: 600px;
+  height: 92%;  
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.star {
+  color: green; 
+}
+
+.allproducts {
+  color: solid black;
+  text-align: center;
+  font-size: 25px;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cartadd{
+  background-color: yellow;
+  height: 45px;   
+  width: 140px;
+  font-size: 20px;
+}
+
+#service{
+  background-color: black;
+  color: aliceblue;
+  text-align: center;
+  justify-content: center;
+  font-size: 37px;
+}
+
+#servicedescription {
+  padding-top: 15px;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; 
+  justify-content: space-around;
+}
+
+.ser img {
+  height: 250px;
+  width: 400px;
+}
+#servicedescription .ser1 {
+  color: black;
+  font-weight: bold;
+  text-decoration:none;
+  text-align: center;
+}
+#servicedescription .ser1:hover {
+  color: green; 
+}
+#video{
+  background-color: black;
+  color: aliceblue;
+  text-align: center;
+  justify-content: center;
+  font-size: 37px;
+}
+
+#video1{
+  background-color: whitesmoke;
+  display: flex;
+  padding: 15px;
+  justify-content: space-evenly;
+}
+
+#fot{
+  color: white;
+  background-color: black;
+  border: 5px solid black;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+#fot1{
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  margin-left: 30px;
+  margin-right: 100px;
+}
+
+ #copyright{
+  margin-left: 30px;
+  margin-top: 5px;
+ }

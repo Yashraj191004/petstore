@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pet Store</title>
+	<link rel="stylesheet" href="/WEBSITE/styles.css">
+</head>
+<body>
+<header>
+<div id="navbar" class="navbar1">
+        <a id="logo" href="index.html">petstore.in</a>
+		<a class="nv" href="acc.php">Account</a>
+        <a class="nv" href="cart.html">My Cart</a>
+        <a class="nv" href="#fot2">Contact Us</a>
+        <input id="psearchInput" placeholder="Search Pet Store">
+        <button id="button1" onclick="search()">Search</button>
+    </div>
+</header>
+<br><br>
+	<div id="location">
+		<div class="location-container">
+		  <img class="logoa" src="location.png" alt="location" height="25px" width="25px">
+		  <label for="loc"><pre><b> Store Location: </b></pre></label>
+		  <select name="loc" id="loc" onchange="giveAddress()">
+			<option value="">Select location</option>
+			<option value="Mumbai">Mumbai</option>
+			<option value="Delhi">Delhi</option>
+			<option value="Bangalore">Bangalore</option>
+			<option value="Surat">Surat</option>
+			<option value="Pune">Pune</option>
+			<option value="Satara">Satara</option>
+		  </select>
+		</div>
+		<div class="location-container">
+		  <img class="logoa" src="fast-delivery.png" alt="Delivering" height="35px" width="35px">
+		  <label><pre><b> Delivery Location: </b></pre></label>
+		  <input type="number" class="ph" id="pincode" placeholder="Enter pincode" pattern="\d{6}">
+		  <button class="ca" onclick="checkAvailability()"><b>Check Availability</b></button>
+		</div>
+	  </div>
+<div>
+	<div id = "address-box"></div>
+</div>
+	
+<div id = "banner">
+</div><br>
+<div id = "pets"><b>Shop By Category</b>
+	<a class = "Dog" href="#DogItems"></a>
+	<a class = "cat" href="#catItems"></a>
+</div><br>
+<div class = "Tn"><pre><b>Trending Now</b></pre></div>
+<div class="products-scroll">
+    <div class="product"> <img src="Dog Food 1.jpg" alt="dog food" onclick="showProductDetails(1)">
+		<div class="details"><pre> ₹20 MRP:<s>₹25</s></pre></div></div>
+	<div class="product"> <img src="Cat Food 1.jpg" alt="cat food"  onclick="showProductDetails(11)">
+		<div class="details"><pre> ₹21 MRP:<s>₹25</s></pre></div></div>
+	<div class="product"> <img src="Cat Food 10.jpeg" alt="cat food"  onclick="showProductDetails(20)">
+		<div class="details"><pre> ₹24 MRP:<s>₹30</s></pre></div></div>
+	<div class="product"> <img src="Dog Food 10.jpg" alt="dog food"  onclick="showProductDetails(10)">
+		<div class="details"><pre> ₹22 MRP:<s>₹25</s></pre></div></div>
+	<div class="product"> <img src="Dog Food 5.jpg" alt="dog food"  onclick="showProductDetails(5)">
+		<div class="details"><pre> ₹40 MRP:<s>₹55</s></pre></div></div>
+	<div class="product"> <img src="Cat Food 5.jpg" alt="cat food"  onclick="showProductDetails(15)">
+		<div class="details"><pre> ₹44 MRP:<s>₹55</s></pre></div></div>
+	<div class="product"> <img src="Dog Food 7.png" alt="dog food"  onclick="showProductDetails(7)">
+		<div class="details"><pre> ₹15 MRP:<s>₹25</s></pre></div></div>
+	<div class="product"> <img src="Cat Food 7.jpeg" alt="cat food"  onclick="showProductDetails(17)">
+		<div class="details"><pre> ₹30 MRP:<s>₹45</s></pre></div></div>
+</div><br>
+<div id="foffer">
+	<pre><b>35% OFF ON FIRST ORDER (USE CODE: FIRST ORDER)</b></pre>
+  </div><br>
+
+   <div id = "DogItems"><pre><b>Dog Food Items</b></pre></div>	
+
+<div id="dogp">
+	<div class="drow">
+	  <div class="dproduct"> 
+		<img src="Dog Food 1.jpg" alt="dog food" onclick="showProductDetails(1)">
+		<div class="ddetails"><pre> ₹20 MRP:<s>₹25</s></pre></div>
+	  </div>
+	  <div class="dproduct"> 
+		<img src="Dog Food 2.jpg" alt="dog food" onclick="showProductDetails(2)">
+		<div class="ddetails"><pre> ₹30 MRP:<s>₹55</s></pre></div>
+	  </div>
+	  <div class="dproduct"> 
+		<img src="Dog Food 3.jpg" alt="dog food" onclick="showProductDetails(3)">
+		<div class="ddetails"><pre> ₹10 MRP:<s>₹25</s></pre></div>
+	  </div>
+	  <div class="dproduct"> 
+		<img src="Dog Food 4.jpg" alt="dog food" onclick="showProductDetails(4)">
+		<div class="ddetails"><pre> ₹25 MRP:<s>₹35</s></pre></div>
+	  </div>
+	  <div class="dproduct"> 
+		<img src="Dog Food 5.jpg" alt="dog food"  onclick="showProductDetails(5)">
+		<div class="ddetails"><pre> ₹40 MRP:<s>₹55</s></pre></div>
+	  </div>
+	</div>
+	<div class="drow">
+		<div class="dproduct"> 
+			<img src="Dog Food 6.png" alt="dog food"  onclick="showProductDetails(6)">
+			<div class="ddetails"><pre> ₹24 MRP:<s>₹27</s></pre></div>
+		  </div>
+		  <div class="dproduct"> 
+			<img src="Dog Food 7.png" alt="dog food" onclick="showProductDetails(7)">
+			<div class="ddetails"><pre> ₹15 MRP:<s>₹25</s></pre></div>
+		  </div>
+		  <div class="dproduct"> 
+			<img src="Dog Food 8.jpg" alt="dog food" onclick="showProductDetails(8)">
+			<div class="ddetails"><pre> ₹40 MRP:<s>₹55</s></pre></div>
+		  </div>
+		  <div class="dproduct"> 
+			<img src="Dog Food 9.jpg" alt="dog food" onclick="showProductDetails(9)">
+			<div class="ddetails"><pre> ₹20 MRP:<s>₹30</s></pre></div>
+		  </div>
+		  <div class="dproduct"> 
+			<img src="Dog Food 10.jpg" alt="dog food" onclick="showProductDetails(10)">
+			<div class="ddetails"><pre> ₹22 MRP:<s>₹25</s></pre></div>
+		  </div>
+	</div>
+  </div><br>
+
+  <div id = "catItems"><pre><b>Cat Food Items</b></pre></div>
+
+  <div id="catp">
+	<div class="crow">
+	  <div class="cproduct"> 
+		<img src="Cat Food 1.jpg" alt="cat food" onclick="showProductDetails(11)">
+		<div class="cdetails"><pre> ₹21 MRP:<s>₹25</s></pre></div>
+	  </div>
+	  <div class="cproduct"> 
+		<img src="Cat Food 2.jpg" alt="cat food" onclick="showProductDetails(12)">
+		<div class="cdetails"><pre> ₹35 MRP:<s>₹45</s></pre></div>
+	  </div>
+	  <div class="cproduct"> 
+		<img src="Cat Food 3.jpg" alt="cat food" onclick="showProductDetails(13)">
+		<div class="cdetails"><pre> ₹27 MRP:<s>₹45</s></pre></div>
+	  </div>
+	  <div class="cproduct"> 
+		<img src="Cat Food 4.jpeg" alt="cat food" onclick="showProductDetails(14)">
+		<div class="cdetails"><pre> ₹25 MRP:<s>₹55</s></pre></div>
+	  </div>
+	  <div class="cproduct"> 
+		<img src="Cat Food 5.jpg" alt="cat food" onclick="showProductDetails(15)">
+		<div class="cdetails"><pre> ₹44 MRP:<s>₹55</s></pre></div>
+	  </div>
+	</div>
+	<div class="crow">
+		<div class="cproduct"> 
+			<img src="Cat Food 6.jpg" alt="cat food" onclick="showProductDetails(16)">
+			<div class="cdetails"><pre> ₹10 MRP:<s>₹25</s></pre></div>
+		  </div>
+		  <div class="cproduct"> 
+			<img src="Cat Food 7.jpeg" alt="cat food" onclick="showProductDetails(17)">
+			<div class="cdetails"><pre> ₹30 MRP:<s>₹45</s></pre></div>
+		  </div>
+		  <div class="cproduct"> 
+			<img src="Cat Food 8.jpg" alt="cat food" onclick="showProductDetails(18)">
+			<div class="cdetails"><pre> ₹20 MRP:<s>₹25</s></pre></div>
+		  </div>
+		  <div class="cproduct"> 
+			<img src="Cat Food 9.jpeg" alt="cat food" onclick="showProductDetails(19)">
+			<div class="cdetails"><pre> ₹18 MRP:<s>₹25</s></pre></div>
+		  </div>
+		  <div class="cproduct"> 
+			<img src="Cat Food 10.jpeg" alt="cat food" onclick="showProductDetails(20)">
+			<div class="cdetails"><pre> ₹24 MRP:<s>₹30</s></pre></div>
+		  </div>
+	</div>
+  </div><br>
+
+	<div id = "service">
+		<p><b>Services We Offer</b></p></div>
+		<div id="servicedescription">
+			<div class="ser">
+			  <a class="ser1" href="Service.html"  target="_blank">
+				<img src="grooming.png" alt="Dog Grooming">
+				<div class="details"><pre> Dog Grooming</pre></div>
+			  </a>
+			</div>
+			<div class="ser">
+			  <a class="ser1" href="Service.html"  target="_blank">
+				<img src="VetServices.png" alt="Vet Services">
+				<div class="details"><pre> Vet Services</pre></div>
+			  </a>
+			</div>
+			<div class="ser">
+			  <a class="ser1" href="Service.html"  target="_blank">
+				<img src="dogtraining.png" alt="Dog Training">
+				<div class="details"><pre> Dog Training</pre></div>
+			  </a>
+			</div>
+		  </div><br>
+
+  <div id = "video">
+	<p><b>Choosing Best Food Items For Your Pet</b></p></div>
+	<div id ="video1">
+	   <iframe width="560" height="315" src="https://www.youtube.com/embed/ppkBktPF6FI?si=-L-vVBb56Feefycp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+	   <iframe width="560" height="315" src="https://www.youtube.com/embed/YZ-o0sZYpZQ?si=hwbEUevV0FM_UMIW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+   </div>
+   <br>
+   <footer>
+	<div id = "fot" >
+	<div id = "fot1">
+		<div id = "fot2"><pre><b>Contact Us:
+Email : <a href="mailto:petstore@gmail.com">petstore@gmail.com</a>
+Phone : <a href="tel:+91-1234567890">+91-1234567890</a>
+Address : 123, ABC Street, CityName - StateName, CountryName
+		</b></pre></div>
+<div><pre><b>Follow Us:
+<a class ="fu" href="https://www.facebook.com/">Facebook</a> 
+<a class ="fu" href="https://www.instagram.com/">Instagram</a> 
+<a class ="fu" href="https://www.twitter.com/">Twitter</a> 
+</b></pre></div></div>
+<hr color="yellow">
+<pre id = "copyright"><b>&copy; petstore.in 2024 All rights reserved. 
+  Design by Yashraj</b></pre>
+
+	</div>
+</footer>
+
+<div class="modal" id="productModal1">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(1)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Dog Food 1.jpg" alt="Dog Food" width="360px" height="360px">
+		<p><strong>Name : Dog Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹20  MRP: <s>₹25</s></pre></p><br>
+        <label for="qv1" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv1" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+        <button class="cartadd" onclick="addToCart(1, 'DOG FOOD', 20, 'Dog Food 1.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal2">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(2)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Dog Food 2.jpg" alt="Dog Food" width="360px" height="360px">
+		<p><strong>Name : Dog Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹30  MRP: <s>₹55</s></pre></p><br>
+		<label for="qv2" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv2" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(2, 'DOG FOOD', 30, 'Dog Food 2.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal3">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(3)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Dog Food 3.jpg" alt="Dog Food" width="360px" height="360px">
+		<p><strong>Name : Dog Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9734;</p><br>
+		<p><pre> SP: ₹10  MRP: <s>₹25</s></pre></p><br>
+		<label for="qv3" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv3" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(3, 'DOG FOOD', 10, 'Dog Food 3.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal4">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(4)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Dog Food 4.jpg" alt="Dog Food" width="360px" height="360px">
+		<p><strong>Name : Dog Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹25  MRP: <s>₹35</s></pre></p><br>
+		<label for="qv4" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv4" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(4, 'DOG FOOD', 25, 'Dog Food 4.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal5">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(5)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Dog Food 5.jpg" alt="Dog Food" width="360px" height="360px">
+		<p><strong>Name : Dog Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9734;</p><br>
+		<p><pre> SP: ₹40  MRP: <s>₹55</s></pre></p><br>
+		<label for="qv5" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv5" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(5, 'DOG FOOD', 40, 'Dog Food 5.jpg')">Add to Cart</button>
+	   </div> 	
+    </div>
+</div>
+
+<div class="modal" id="productModal6">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(6)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Dog Food 6.png" alt="Dog Food" width="360px" height="360px">
+		<p><strong>Name : Dog Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹24  MRP: <s>₹27</s></pre></p><br>
+		<label for="qv6" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv6" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(6, 'DOG FOOD', 24, 'Dog Food 6.png')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal7">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(7)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Dog Food 7.png" alt="Dog Food" width="360px" height="360px">
+		<p><strong>Name : Dog Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9734;</p><br>
+		<p><pre> SP: ₹15  MRP: <s>₹25</s></pre></p><br>
+		<label for="qv7" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv7" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(7, 'DOG FOOD', 15, 'Dog Food 7.png')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal8">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(8)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Dog Food 8.jpg" alt="Dog Food" width="360px" height="360px">
+		<p><strong>Name : Dog Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹40  MRP: <s>₹55</s></pre></p><br>
+		<label for="qv8" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv8" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(8, 'DOG FOOD', 40, 'Dog Food 8.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal9">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(9)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Dog Food 9.jpg" alt="Dog Food" width="360px" height="360px">
+		<p><strong>Name : Dog Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9734;</p><br>
+		<p><pre> SP: ₹20  MRP: <s>₹30</s></pre></p><br>
+		<label for="qv9" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv9" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(9, 'DOG FOOD', 20, 'Dog Food 9.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal10">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(10)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Dog Food 10.jpg" alt="Dog Food" width="360px" height="360px">
+		<p><strong>Name : Dog Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹22  MRP: <s>₹25</s></pre></p><br>
+		<label for="qv10" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv10" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			
+		</select>
+		<button class="cartadd" onclick="addToCart(10, 'DOG FOOD', 22, 'Dog Food 10.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal11">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(11)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Cat Food 1.jpg" alt="Cat Food" width="360px" height="360px">
+		<p><strong>Name : Cat Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹21  MRP: <s>₹25</s></pre></p><br>
+		<label for="qv11" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv11" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(11, 'CAT FOOD', 21, 'Cat Food 1.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal12">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(12)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Cat Food 2.jpg" alt="Cat Food" width="360px" height="360px">
+		<p><strong>Name : Cat Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9734;</p><br>
+		<p><pre> SP: ₹35  MRP: <s>₹45</s></pre></p><br>
+		<label for="qv12" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv12" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(12, 'CAT FOOD', 35, 'Cat Food 2.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal13">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(13)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Cat Food 3.jpg" alt="Cat Food" width="360px" height="360px">
+		<p><strong>Name : Cat Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹27  MRP: <s>₹45</s></pre></p><br>
+		<label for="qv13" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv13" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(13, 'CAT FOOD', 27, 'Cat Food 3.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal14">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(14)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Cat Food 4.jpeg" alt="Cat Food" width="360px" height="360px">
+		<p><strong>Name : Cat Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹25  MRP: <s>₹55</s></pre></p><br>
+		<label for="qv14" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv14" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(14, 'CAT FOOD', 25, 'Cat Food 4.jpeg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal15">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(15)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Cat Food 5.jpg" alt="Cat Food" width="360px" height="360px">
+		<p><strong>Name : Cat Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9734;&#9734;</p><br>
+		<p><pre> SP: ₹44  MRP: <s>₹55</s></pre></p><br>
+		<label for="qv15" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv15" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(15, 'CAT FOOD', 44, 'Cat Food 5.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal16">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(16)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Cat Food 6.jpg" alt="Cat Food" width="360px" height="360px">
+		<p><strong>Name : Cat Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹10  MRP: <s>₹25</s></pre></p><br>
+		<label for="qv16" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv16" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(16, 'CAT FOOD', 10, 'Cat Food 6.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal17">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(17)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Cat Food 7.jpeg" alt="Cat Food" width="360px" height="360px">
+		<p><strong>Name : Cat Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9734;</p><br>
+		<p><pre> SP: ₹30  MRP: <s>₹45</s></pre></p><br>
+		<label for="qv17" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv17" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(17, 'CAT FOOD', 30, 'Cat Food 7.jpeg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal18">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(18)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Cat Food 8.jpg" alt="Cat Food" width="360px" height="360px">
+		<p><strong>Name : Cat Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9733;</p><br>
+		<p><pre> SP: ₹20  MRP: <s>₹25</s></pre></p><br>
+		<label for="qv18" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv18" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(18, 'CAT FOOD', 20, 'Cat Food 8.jpg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal19">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(19)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Cat Food 9.jpeg" alt="Cat Food" width="360px" height="360px">
+		<p><strong>Name : Cat Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9734;&#9734;</p><br>
+		<p><pre> SP: ₹18  MRP: <s>₹25</s></pre></p><br>
+		<label for="qv19" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv19" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+		<button class="cartadd" onclick="addToCart(19, 'CAT FOOD', 18, 'Cat Food 9.jpeg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<div class="modal" id="productModal20">
+    <div class="modal-content">
+        <span class="close" onclick="closeProductDetails(20)">&times;</span>
+       <div class=" allproducts">
+		<h2>Product details</h2>
+		<img src="Cat Food 10.jpeg" alt="Cat Food" width="360px" height="360px">
+		<p><strong>Name : Cat Food</strong></p><br>
+		<p class = "star">Ratings :  &#9733;&#9733;&#9733;&#9733;&#9734;</p><br>
+		<p><pre> SP: ₹24  MRP: <s>₹30</s></pre></p><br>
+		<label for="qv20" style = "font-size: 25px;">Quantity:</label>
+		<select id="qv20" class="quantity-input" style="height: 20px;">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>    
+		</select>
+		<button class="cartadd" onclick="addToCart(20, 'CAT FOOD', 24, 'Cat Food 10.jpeg')">Add to Cart</button>
+	   </div> 
+    </div>
+</div>
+
+<script src="/WEBSITE/script.js"></script>
+
+</body>
+</html>

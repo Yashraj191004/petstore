@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        *{
+            background-color: lightcyan;
+        }
+        #all{
+            font-size: 18px;
+        }
+        #tp{
+            font-size: 20px;
+        }
+        #head{
+            color: red;
+            display: flex;
+            align-items: flex-start;
+            gap: 40%;
+        }
+        #bck{
+            color: red;
+            text-decoration: none;
+        }
+        #bck:hover{
+            color: green;
+            cursor: pointer;
+        }
+        button{
+            background: yellow;
+            font-size: 15px;
+        }
+        h1{
+            text-align: center;
+            font-size: 30px;
+        }
+        input{
+            font-size: 15px;
+        }
+        #cartItems {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; 
+        }
+        .cart-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            gap: 30px;
+        }
+        .cart-item img {
+            width: 150px;
+            height: 150px;
+        }
+        .quantity {
+            display: flex;
+            align-items: center;
+        }
+        .quantity input {
+            width: 40px;
+            text-align: center;
+            margin: 0 5px;
+        }
+        .quantity button {
+            background-color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+   <div id ="head">
+    <div><a id = "bck" href="index.html"><h1>Back</h1></a></div>
+    <div><h1>Your Cart Items</h1></div>
+   </div>
+    <div id="cartItems">
+    </div>
+    <p id = "tp"><b>Total Price: <span id="totalPrice"></span></b></p>
+    <button onclick="placeOrder()" id="placeOrderBtn">Check Out</button>
+
+<script>
+
+    let cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+    if (cartItems && cartItems.length > 0) {
+        let cartItemsHtml = '';
+        let totalPrice = 0;
+        cartItems.forEach((item, index) => {
+            cartItemsHtml += `<div class="cart-item">
+                                <img src="${item.imagePath}" alt="${item.productName}">
+                                <div id = "all">
+                                    <p><b>${item.productName}</b></p>
+                                    <p><b>Price: ₹${item.price}</b></p>
+                                    <div class="quantity">
+                                        <button onclick="reduceQuantity(${index})">-</button>
+                                        <input type="number" min="1" max="5" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)">
+                                        <button onclick="increaseQuantity(${index})">+</button>
+                                    </div><br>
+                                    <button onclick="removeFromCart(${index})">Remove from Cart</button>
+                                </div>
+                            </div>`;
+            totalPrice += item.price * item.quantity;
+        });
+        document.getElementById('cartItems').innerHTML = cartItemsHtml;
+        document.getElementById('totalPrice').textContent = '₹' + totalPrice.toFixed(2);
+    } else {
+        document.getElementById('cartItems').innerHTML = '<p style = "font-size:25px;"><b>No items in the shopping cart.</b></p>';
+    }
+
+    function removeFromCart(index) {
+        let cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+        cartItems.splice(index, 1);
+        sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+        location.reload();
+    }
+    function reduceQuantity(index) {
+        let cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+        if (cartItems[index].quantity > 1) {
+            cartItems[index].quantity--;
+            sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+            location.reload();
+        }
+    }
+    function increaseQuantity(index) {
+        let cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+        if (cartItems[index].quantity < 5) {
+            cartItems[index].quantity++;
+            sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+            location.reload();
+        }
+    }
+    function updateQuantity(index, newQuantity) {
+        let cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+        if (newQuantity >= 1 && newQuantity <= 5) {
+            cartItems[index].quantity = parseInt(newQuantity);
+            sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+            location.reload();
+        }
+    }
+
+    function placeOrder() {
+    let cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
+    if (cartItems && cartItems.length > 0) {
+        sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+        sessionStorage.setItem('totalPrice', JSON.stringify(document.getElementById('totalPrice').textContent));
+        window.location.href = "checkout.html";
+    } else {
+        alert('Your cart is empty! Please add items before placing an order.');
+    }
+}
+
+
+</script>
+
+</body>
+</html>
